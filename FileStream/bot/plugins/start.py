@@ -19,7 +19,7 @@ async def start(bot: Client, message: Message):
     if not await verify_user(bot, message):
         return
 
-    usr_cmd = message.text.split("_")[-1]
+    usr_cmd = message.text.split(" ", 1)[-1]
 
     if usr_cmd == "/start":
         if Telegram.START_PIC:
