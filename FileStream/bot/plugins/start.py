@@ -68,8 +68,7 @@ async def start(bot: Client, message: Message):
 
                 file_check = await db.get_file(file_id)
                 if file_check:
-                    reply_markup, stream_text = await gen_link(m=message, _id=file_id,
-                                                                name=[FileStream.username, FileStream.fname])
+                    reply_markup, stream_text = await gen_link(_id)
                     await message.reply_text(
                         text=stream_text,
                         parse_mode=ParseMode.HTML,
