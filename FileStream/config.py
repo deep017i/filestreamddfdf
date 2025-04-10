@@ -9,8 +9,8 @@ class Telegram:
     BOT_TOKEN = str(env.get("BOT_TOKEN", "7041641761:AAEzG9Dfozu9aQB4tEU1gbcQaQlgwhG7W_Y"))
     OWNER_ID = int(env.get('OWNER_ID', '1782834874'))
     WORKERS = int(env.get("WORKERS", "6"))  # 6 workers = 6 commands at once
-    DATABASE_URL = str(env.get('DATABASE_URL', "mongodb+srv://starcinebot:mkooaa@werdeveloper.vxfam.mongodb.net/?retryWrites=true&w=majority&appName=werdeveloper"))
-    UPDATES_CHANNEL = str(env.get('UPDATES_CHANNEL', "Telegram"))
+    DATABASE_URL = str(env.get('DATABASE_URL', "mongodb+srv://Raj2345:Raj2345@cluster0.xyai6ld.mongodb.net/?retryWrites=true&w=majority"))
+    UPDATES_CHANNEL = str(env.get('UPDATES_CHANNEL', "Nostalgiahindizone"))
     SESSION_NAME = str(env.get('SESSION_NAME', 'FileStream'))
     FORCE_SUB_ID = env.get('FORCE_SUB_ID', None)
     FORCE_SUB = env.get('FORCE_UPDATES_CHANNEL', False)
