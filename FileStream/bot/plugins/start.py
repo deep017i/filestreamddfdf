@@ -2,7 +2,7 @@ import logging
 import math
 from FileStream import __version__
 from FileStream.bot import FileStream
-from FileStream.server.exceptions import FileNotFound  # ✔️ Fixed typo: FIleNotFound -> FileNotFound
+from FileStream.server.exceptions import FIleNotFound
 from FileStream.utils.bot_utils import *
 from FileStream.config import Telegram
 from FileStream.utils.database import Database
