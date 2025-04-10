@@ -90,7 +90,7 @@ async def start(bot: Client, message: Message):
 
     elif "file_" in message.text:
         try:
-            file_check = await db.get_file(usr_cmd)
+            file_check = await db.get_file(message.text.split("_")[-1])
             db_id = str(file_check['_id'])
             file_id = file_check['file_id']
             file_name = file_check['file_name']
