@@ -57,21 +57,19 @@ async def start(bot: Client, message: Message):
             await message.reply_text("Something Went Wrong")
             logging.error(e)
 
-    elif "channel_" in message.text:
+    elif "channel_" in usr_cmd:
         try:
-            # Format: channel_<channel_id>_<message_id>_<file_id>
+            # Example: /start channel_-1001234567890_45_abc123fileid
             params = usr_cmd.split("_")
             if len(params) >= 4:
                 channel_id = params[1]
                 message_id = params[2]
                 file_id = params[3]
 
-                # Get file info from database
                 file_check = await db.get_file(file_id)
                 if file_check:
-                    # Generate download links using gen_link
-                    reply_markup, stream_text = await gen_link(file_id)
-
+                    reply_markup, stream_text = await gen_link(m=message, _id=file_id,
+                                                                name=[FileStream.username, FileStream.fname])
                     await message.reply_text(
                         text=stream_text,
                         parse_mode=ParseMode.HTML,
@@ -80,14 +78,16 @@ async def start(bot: Client, message: Message):
                         quote=True
                     )
                 else:
-                    await message.reply_text("File Not Found")
+                    await message.reply_text("❌ File Not Found")
             else:
-                await message.reply_text("Invalid Channel Link Format")
-        except FileNotFound:
-            await message.reply_text("File Not Found")
+                await message.reply_text("❌ Invalid Channel Link Format")
+
+        except FIleNotFound:
+            await message.reply_text("❌ File Not Found")
         except Exception as e:
-            await message.reply_text("Something Went Wrong")
+            await message.reply_text("⚠️ Something went wrong.")
             logging.error(e)
+
 
     elif "file_" in message.text:
         try:
